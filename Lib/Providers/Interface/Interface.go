@@ -1,8 +1,12 @@
 package Interface
 
+import (
+	"go-microservices/Lib/Entities"
+)
+
 type ProviderInterface interface {
-	Find()
-	List()
+	Find() Entities.Entity
+	List() []Entities.Entity
 	Insert() bool
 	Update() bool
 	Delete() bool

@@ -1,7 +1,7 @@
 package Entities
 
 type Entity struct {
-	Id int
+	Id int `json:"Id"`
 }
 
 func (this Entity) getId() int {

@@ -6,8 +6,8 @@ import (
 
 type Employee struct {
 	Entities.Entity
-	Name   string
-	Family string
-	Email  string
-	Phone  string
+	Name   string `json:"name"` //Define encode / decode mapper in Json format
+	Family string `json:"family"`
+	Email  string `json:"email"`
+	Phone  string `json:"phone"`
 }

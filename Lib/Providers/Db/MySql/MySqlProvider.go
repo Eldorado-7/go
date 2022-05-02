@@ -1,5 +1,9 @@
 package MySql
 
+import (
+	"go-microservices/Lib/Entities"
+)
+
 type MySqlProvider struct {
 	host       string
 	user       string
@@ -9,10 +13,12 @@ type MySqlProvider struct {
 
 //TODO: find a way to implement all of Provider Interface methods
 
-func (this MySqlProvider) Find() {
+func (this MySqlProvider) Find() Entities.Entity {
+	return Entities.Entity{}
 }
 
-func (this MySqlProvider) List() {
+func (this MySqlProvider) List() []Entities.Entity {
+	return make([]Entities.Entity, 0)
 }
 
 func (this MySqlProvider) Insert() bool {

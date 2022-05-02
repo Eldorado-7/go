@@ -1,17 +1,19 @@
-package Employees
+package Models
 
 import (
 	"go-microservices/Lib/Controllers"
-	"go-microservices/Lib/Providers/Factory"
 )
 
-type Employee struct {
-	Controllers.Controllers
+type EmployeeList struct {
+	Controllers.Controller
 }
 
-func (this Employee) DoRun(params []string) string {
-	Factory.CreateProvider().List()
+func (this EmployeeList) DoRun(params []string) string {
+	//Creaye a new provider and inject into controller provider using Factory class pattern
+	//this.Provider =
 
+	//Fetch the list of Data from data provider
+	//list := this.Provider.List()
 	//Create a JSON encoded result
 	return ""
 }
