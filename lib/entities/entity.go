@@ -1,4 +1,4 @@
-package entities
+package Entities
 
 type Entity struct {
 	Id int

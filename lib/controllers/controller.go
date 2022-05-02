@@ -1,14 +1,11 @@
 package Controllers
 
-type runner func(params []string) struct{}
+type DoRun func([]string)
 
-type Controller struct {
+type Controllers struct {
+	DoRun
 }
 
-func (this Controller) Run(params []string) {
+func (this Controllers) Run(params []string) {
 	this.DoRun(params)
-}
-
-func (this Controller) DoRun(params []string) {
-
 }
