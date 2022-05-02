@@ -1,4 +1,4 @@
-package controllers
+package Employees
 
 type Employee struct {
 }

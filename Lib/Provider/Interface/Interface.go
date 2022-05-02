@@ -1,4 +1,4 @@
-package providers
+package Interface
 
 type ProviderInterface interface {
 	Find()
