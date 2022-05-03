@@ -2,11 +2,11 @@ package Employees
 
 import (
 	Entities "go-microservices/Entities/Employees"
-	"go-microservices/Lib/Providers/Interface"
+	"go-microservices/lib/Models"
 )
 
 type EmployeeModel struct {
-	Provider Interface.ProviderInterface
+	Models.Model
 }
 
 func (this EmployeeModel) List() []Entities.Employee {

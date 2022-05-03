@@ -1,8 +1,8 @@
 package Controllers
 
-type DoRun func([]string)
+type DRun func([]string)
 
-type Controller struct {
+ype Controller struct {
 	DoRun
 }
 
