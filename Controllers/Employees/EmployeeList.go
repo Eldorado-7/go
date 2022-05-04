@@ -1,8 +1,10 @@
-package Models
+package Employees
 
 import (
-	"go-microservices/Lib/Controllers"
-	_ "go-microservices/Models/Employees"
+	"encoding/json"
+	_ "encoding/json"
+	"go-microservices/Models/Employees"
+	"go-microservices/lib/Controllers"
 )
 
 type EmployeeList struct {
@@ -10,13 +12,15 @@ type EmployeeList struct {
 }
 
 func (this EmployeeList) DoRun(params []string) string {
-	//model := EmployeeModel{}
-	//model
-	//Creaye a new provider and inject into controller provider using Factory class pattern
-	//this.Provider =
-	//empMOdel :=
-	//Fetch the list of Data from data provider
-	//list := this.Provider.List()
+	//Fetch employees from DAO through data provider
+	EmployeeDAO := Employees.EmployeeModel{}
+
+	//Initiate DAO for employee
+	EmployeeDAO.Init()
+
 	//Create a JSON encoded result
-	return ""
+	empjson, _ := json.MarshalIndent(EmployeeDAO.List(params), "", "  ")
+
+	//convert encoded data into a string format
+	return string(empjson)
 }

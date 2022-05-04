@@ -9,7 +9,7 @@ type EmployeeModel struct {
 	Models.Model
 }
 
-func (this EmployeeModel) List() []Entities.Employee {
+func (this EmployeeModel) List(params []string) []Entities.Employee {
 	//Stub method. must return list from its provder
 	return make([]Entities.Employee, 0)
 }
