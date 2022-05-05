@@ -5,8 +5,8 @@ import (
 )
 
 type ProviderInterface interface {
-	Find() Entities.Entity
-	List() []Entities.Entity
+	Find() *Entities.Entity
+	List() []*Entities.Entity
 	Insert() bool
 	Update() bool
 	Delete() bool

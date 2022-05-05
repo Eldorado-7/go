@@ -6,10 +6,11 @@ import (
 	"go-microservices/lib/Providers/Interface"
 )
 
-func CreateProvider() Interface.ProviderInterface {
+func CreateProvider() *Interface.ProviderInterface {
 
 	switch Source.SOURCE_CURRENT_PROVIDER {
 	case "my-sql":
+		//var temp = createMySqlProvider()
 		return createMySqlProvider()
 
 	}
@@ -19,9 +20,9 @@ func CreateProvider() Interface.ProviderInterface {
 
 }
 
-func createMySqlProvider() MySql.MySqlProvider {
+func createMySqlProvider() *MySql.MySqlProvider {
 	//Initialize provider
-	provider := MySql.MySqlProvider{}
+	provider := &MySql.MySqlProvider{}
 
 	//Set provider connection settings
 	provider.SetDatasource(Source.SOURCE_USER)

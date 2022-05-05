@@ -6,7 +6,7 @@ import (
 )
 
 type Model struct {
-	Provider Interface.ProviderInterface
+	Provider *Interface.ProviderInterface
 }
 
 func (this Model) Init() {

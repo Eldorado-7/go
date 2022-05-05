@@ -8,10 +8,10 @@ import (
 )
 
 type EmployeeList struct {
-	Controllers.Controller
+	*Controllers.Controller
 }
 
-func (this EmployeeList) DoRun(params []string) string {
+func (this *EmployeeList) DoRun(params []string) string {
 	//Fetch employees from DAO through data provider
 	EmployeeDAO := Employees.EmployeeModel{}
 

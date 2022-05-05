@@ -6,4 +6,5 @@ import (
 
 type ControllerInterface interface {
 	Run(params []string) http.HandlerFunc
+	DoRun([]string) string
 }

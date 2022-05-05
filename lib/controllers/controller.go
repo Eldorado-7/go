@@ -4,13 +4,14 @@ import (
 	"net/http"
 )
 
-type DoRun func([]string) string
-
+//Abstract Controller class which handle all incoming microservice requests
 type Controller struct {
+	//Simulated Abstract method which be called via Run method
+	DoRun func([]string) string
 }
 
 //Create a generic http response helper for all incoming requests
-func (this Controller) Run(params []string) http.HandlerFunc {
+func (this *Controller) Run(params []string) http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
 
 		rw.Header().Add("content-type", "application/json")
@@ -20,5 +21,3 @@ func (this Controller) Run(params []string) http.HandlerFunc {
 		rw.Write([]byte(this.DoRun(params)))
 	}
 }
-
-func (this Controller) DoRun(params []string) string

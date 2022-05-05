@@ -13,58 +13,58 @@ type MySqlProvider struct {
 
 //TODO: find a way to implement all of Provider Interface methods
 
-func (this MySqlProvider) Find() Entities.Entity {
-	return Entities.Entity{}
+func (this *MySqlProvider) Find() *Entities.Entity {
+	return &Entities.Entity{}
 }
 
-func (this MySqlProvider) List() []Entities.Entity {
-	return make([]Entities.Entity, 0)
+func (this *MySqlProvider) List() []*Entities.Entity {
+	return make([]*Entities.Entity, 0)
 }
 
-func (this MySqlProvider) Insert() bool {
+func (this *MySqlProvider) Insert() bool {
 	return true
 }
 
-func (this MySqlProvider) Update() bool {
+func (this *MySqlProvider) Update() bool {
 	return true
 }
 
-func (this MySqlProvider) Delete() bool {
+func (this *MySqlProvider) Delete() bool {
 	return true
 }
 
-func (this MySqlProvider) Connect() bool {
+func (this *MySqlProvider) Connect() bool {
 	return true
 }
 
 //Setters
-func (this MySqlProvider) SetUser(value string) {
+func (this *MySqlProvider) SetUser(value string) {
 	this.user = value
 }
-func (this MySqlProvider) SetPassword(value string) {
+func (this *MySqlProvider) SetPassword(value string) {
 	this.password = value
 }
 
-func (this MySqlProvider) SetHost(value string) {
+func (this *MySqlProvider) SetHost(value string) {
 	this.password = value
 }
 
-func (this MySqlProvider) SetDatasource(value string) {
+func (this *MySqlProvider) SetDatasource(value string) {
 	this.password = value
 }
 
 //Getters
-func (this MySqlProvider) GetUser() string {
+func (this *MySqlProvider) GetUser() string {
 	return this.user
 }
-func (this MySqlProvider) GetPassword() string {
+func (this *MySqlProvider) GetPassword() string {
 	return this.password
 }
 
-func (this MySqlProvider) GetHost() string {
+func (this *MySqlProvider) GetHost() string {
 	return this.host
 }
 
-func (this MySqlProvider) GetDatasource() string {
+func (this *MySqlProvider) GetDatasource() string {
 	return this.datasource
 }
