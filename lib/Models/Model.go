@@ -10,5 +10,7 @@ type Model struct {
 }
 
 func (this Model) Init() {
-	this.Provider = Factory.CreateProvider()
+	provder := Factory.CreateProvider()
+	this.Provider = &provder
+	// this.Provider = Factory.CreateProvider()
 }

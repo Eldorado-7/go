@@ -14,10 +14,13 @@ import (
 )
 
 func main() {
+	//Just some basic test
+	testAppEngine()
+
 	// Create new Router
 	router := mux.NewRouter()
 	//TODO: we need a Abstract Factory pattern to generate all type of microservice requests
-	engine := &Employees.EmployeeList{}
+	engine := Employees.EmployeeList{}
 
 	// route properly to respective handlers
 	router.Handle("/employees", engine.Run(make([]string, 0))).Methods("GET")

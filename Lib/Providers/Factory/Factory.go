@@ -6,7 +6,7 @@ import (
 	"go-microservices/lib/Providers/Interface"
 )
 
-func CreateProvider() *Interface.ProviderInterface {
+func CreateProvider() Interface.ProviderInterface {
 
 	switch Source.SOURCE_CURRENT_PROVIDER {
 	case "my-sql":
