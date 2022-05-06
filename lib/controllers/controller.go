@@ -3,11 +3,12 @@
 *** @version: 1.0.1
 *** @email: javadbayzavi@gmail.com
 *** @year: 2021
-*/
+ */
 
 package Controllers
 
 import (
+	"go-microservices/lib/Controllers/Exeutors/Interface"
 	"go-microservices/lib/Controllers/Interface"
 	"net/http"
 )
@@ -15,6 +16,7 @@ import (
 type Controller struct {
 	//Simulated Abstract method which be called via Run method
 	Interface.ControllerInterface
+	executor Interface.ExecutorInterface
 }
 
 //Create a generic http response helper for all incoming requests
