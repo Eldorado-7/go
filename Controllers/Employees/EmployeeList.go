@@ -8,7 +8,7 @@ import (
 )
 
 type EmployeeList struct {
-	*Controllers.Controller
+	Controllers.Controller
 }
 
 func (this *EmployeeList) DoRun(params []string) string {

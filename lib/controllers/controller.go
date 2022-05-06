@@ -4,7 +4,6 @@ import (
 	"net/http"
 )
 
-//Abstract Controller class which handle all incoming microservice requests
 type Controller struct {
 	//Simulated Abstract method which be called via Run method
 	DoRun func([]string) string
@@ -18,7 +17,6 @@ func (this *Controller) Run(params []string) http.HandlerFunc {
 		rw.WriteHeader(http.StatusFound)
 
 		//Wrap the response into the http header as sequence of bytes
-		//rw.Write([]byte(this.DoRun(params)))
-		this.DoRun(params)
+		rw.Write([]byte(this.DoRun(params)))
 	}
 }
