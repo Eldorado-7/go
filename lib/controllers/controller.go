@@ -20,19 +20,29 @@ type Controller struct {
 }
 
 //Create a generic http response helper for all incoming requests
-func (this *Controller) Run(params map[string]string) (http.HandlerFunc, error) {
+func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 
 	//Checking for the configuration of the execution engine
 	if this.executor == nil {
-		this.executor = Executors.Executor{target: this}
+		//TODO: check for the context of execution engine {Web, CLI, Microservice}
+		this.executor = Executors.Executor{}
 	}
 
-	return func(rw http.ResponseWriter, r *http.Request) {
+	// return func(rw http.ResponseWriter, r *http.Request) {
 
-		rw.Header().Add("content-type", "application/json")
-		rw.WriteHeader(http.StatusFound)
+	// 	rw.Header().Add("content-type", "application/json")
+	// 	rw.WriteHeader(http.StatusFound)
 
-		//Wrap the response into the http header as sequence of bytes
-		//rw.Write([]byte(this.DoRun(params)))
+	// 	//Wrap the response into the http header as sequence of bytes
+	// 	//rw.Write([]byte(this.DoRun(params)))
+	// }, nil
+	return nil, nil
+}
+
+func (this Controller) processContext(param *map[string]string) string {
+	if param != nil && param["context"] != nil {
+		return param["context"]
+	} else {
+		return "service"
 	}
 }

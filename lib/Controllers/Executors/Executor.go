@@ -13,7 +13,8 @@ import (
 )
 
 type Executor struct {
-	target ControllerInterfaces.ControllerInterface
+	target      ControllerInterfaces.ControllerInterface
+	ContextType string
 }
 
 func (this Executor) execute(params map[string]string) (bool, error) {
