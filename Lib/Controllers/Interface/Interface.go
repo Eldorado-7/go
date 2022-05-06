@@ -1,3 +1,10 @@
+/*
+*** @author: Javad Bayzavi
+*** @version: 1.0.1
+*** @email: javadbayzavi@gmail.com
+*** @year: 2021
+*/
+
 package Interface
 
 import (
@@ -5,6 +12,6 @@ import (
 )
 
 type ControllerInterface interface {
-	Run(params []string) http.HandlerFunc
-	DoRun([]string) string
+	Run(params map[string]string) http.HandlerFunc
+	processMe([]string) string
 }

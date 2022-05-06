@@ -1,3 +1,10 @@
+/*
+*** @author: Javad Bayzavi
+*** @version: 1.0.1
+*** @email: javadbayzavi@gmail.com
+*** @year: 2021
+*/
+
 package MySql
 
 import (
@@ -13,11 +20,11 @@ type MySqlProvider struct {
 
 //TODO: find a way to implement all of Provider Interface methods
 
-func (this *MySqlProvider) Find() *Entities.Entity {
+func (this *MySqlProvider) Find(params map[string]string) *Entities.Entity {
 	return &Entities.Entity{}
 }
 
-func (this *MySqlProvider) List() []*Entities.Entity {
+func (this *MySqlProvider) List(params map[string]string) []*Entities.Entity {
 	return make([]*Entities.Entity, 0)
 }
 

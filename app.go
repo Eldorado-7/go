@@ -1,3 +1,10 @@
+/*
+*** @author: Javad Bayzavi
+*** @version: 1.0.1
+*** @email: javadbayzavi@gmail.com
+*** @year: 2021
+*/
+
 package main
 
 import (
@@ -23,7 +30,7 @@ func main() {
 	engine := Employees.EmployeeList{}
 
 	// route properly to respective handlers
-	router.Handle("/employees", engine.Run(make([]string, 0))).Methods("GET")
+	router.Handle("/employees", engine.Run(make(map[string]string, 0))).Methods("GET")
 
 	// Create new server and assign the router
 	server := http.Server{
