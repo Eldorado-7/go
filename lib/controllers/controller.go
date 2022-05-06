@@ -8,19 +8,19 @@
 package Controllers
 
 import (
-	Interface "go-microservices/lib/Controllers/ControllerInterfaces"
+	"go-microservices/lib/Controllers/ControllerInterfaces"
 	"go-microservices/lib/Controllers/Executors/ExecutorInterfaces"
 	"net/http"
 )
 
 type Controller struct {
-	//Simulated Abstract method which be called via Run method
-	Interface.ControllerInterfaces
-	executor Interface.ExecutorInterface
+	ControllerInterfaces.ControllerInterface
+	executor ExecutorInterfaces.ExecutorInterface
 }
 
 //Create a generic http response helper for all incoming requests
 func (this *Controller) Run(params map[string]string) http.HandlerFunc {
+	
 	return func(rw http.ResponseWriter, r *http.Request) {
 
 		rw.Header().Add("content-type", "application/json")

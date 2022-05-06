@@ -3,17 +3,17 @@
 *** @version: 1.0.1
 *** @email: javadbayzavi@gmail.com
 *** @year: 2021
-*/
+ */
 
 package Executors
 
 import (
-	"go-microservices/lib/Controllers/Interface"
+	"go-microservices/lib/Controllers/ControllerInterfaces"
 	"net/http"
 )
 
 type Executor struct {
-	target Interface.ControllerInterface
+	target ControllerInterfaces.ControllerInterface
 }
 
 func (this Executor) execute(params map[string]string) (bool, error) {
@@ -31,6 +31,6 @@ func (this Executor) executeAsync(params map[string]string) (bool, error) {
 	//this.target.Run(params)
 	return true, nil
 }
-func (this Executor) initiateEngine(context Interface.ControllerInterface) {
+func (this Executor) initiateEngine(context ControllerInterfaces.ControllerInterface) {
 	this.target = context
 }
