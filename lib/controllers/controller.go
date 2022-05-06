@@ -8,14 +8,14 @@
 package Controllers
 
 import (
-	"go-microservices/lib/Controllers/Exeutors/Interface"
-	"go-microservices/lib/Controllers/Interface"
+	Interface "go-microservices/lib/Controllers/ControllerInterfaces"
+	"go-microservices/lib/Controllers/Executors/ExecutorInterfaces"
 	"net/http"
 )
 
 type Controller struct {
 	//Simulated Abstract method which be called via Run method
-	Interface.ControllerInterface
+	Interface.ControllerInterfaces
 	executor Interface.ExecutorInterface
 }
 
