@@ -9,10 +9,12 @@ package Executors
 
 import (
 	"go-microservices/lib/Controllers/ControllerInterfaces"
+	"go-microservices/lib/Controllers/Executors/ExecutorInterfaces"
 	"net/http"
 )
 
 type Executor struct {
+	ExecutorInterfaces.ExecutorInterface
 	target      ControllerInterfaces.ControllerInterface
 	ContextType string
 }
