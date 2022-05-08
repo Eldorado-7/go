@@ -1,10 +1,3 @@
-/*
-*** @author: Javad Bayzavi
-*** @version: 1.0.1
-*** @email: javadbayzavi@gmail.com
-*** @year: 2021
-*/
-
 package Factory
 
 import (

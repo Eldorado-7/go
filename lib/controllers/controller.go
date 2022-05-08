@@ -1,10 +1,3 @@
-/*
-*** @author: Javad Bayzavi
-*** @version: 1.0.1
-*** @email: javadbayzavi@gmail.com
-*** @year: 2021
- */
-
 package Controllers
 
 import (
@@ -25,9 +18,11 @@ func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 	//Checking for the configuration of the execution engine
 	if this.executor == nil {
 		//TODO: check for the context of execution engine {Web, CLI, Microservice}
-		this.executor = Executors.Executor{}
+		this.executor = Executors.Executor{
+			target = this
+		}
 	}
-
+	
 	// return func(rw http.ResponseWriter, r *http.Request) {
 
 	// 	rw.Header().Add("content-type", "application/json")
@@ -38,6 +33,7 @@ func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 	// }, nil
 	return nil, nil
 }
+<<<<<<< HEAD
 
 func (this Controller) processContext(param *map[string]string) string {
 	if *param != nil && *param["context"] != nil {
@@ -46,3 +42,5 @@ func (this Controller) processContext(param *map[string]string) string {
 		return "service"
 	}
 }
+=======
+>>>>>>> 90ad8b303d2eea40bd1431d51fd444a8ba05b416
