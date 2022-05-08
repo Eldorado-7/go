@@ -9,7 +9,7 @@ package main
 
 import (
 	_ "encoding/json"
-	_ "go-microservices/Controllers/Employees"
+	"go-microservices/Controllers/Employees"
 	Address "go-microservices/Lib/Core/Addresses"
 
 	_ "io/ioutil"
@@ -21,15 +21,16 @@ import (
 
 func main() {
 	//Just some basic test
-	testAppEngine()
+	//testAppEngine()
 
 	// Create new Router
 	router := mux.NewRouter()
 	//TODO: we need a Abstract Factory pattern to generate all type of microservice requests
-	//engine := Employees.EmployeeList{}
+	var engin = Employees.EmployeeList{}
+	var params map[string]string = map[string]string{"context": "service"}
 
 	// route properly to respective handlers
-	//router.Handle("/employees", engine.Run(make(map[string]string, 0))).Methods("GET")
+	router.Handle("/employees", engin.HandleMe(&engin, params)).Methods("GET")
 
 	// Create new server and assign the router
 	server := http.Server{

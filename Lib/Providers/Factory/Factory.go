@@ -27,6 +27,7 @@ func createMySqlProvider() *MySql.MySqlProvider {
 	//Set provider connection settings
 	provider.SetDatasource(Source.SOURCE_USER)
 	provider.SetHost(Source.SOURCE_HOST)
+	provider.SetPort(Source.SOURCE_PORT)
 	provider.SetPassword(Source.SOURCE_PASSWORD)
 	provider.SetUser(Source.SOURCE_USER)
 
