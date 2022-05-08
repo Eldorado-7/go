@@ -15,25 +15,33 @@ import (
 
 type Executor struct {
 	ExecutorInterfaces.ExecutorInterface
-	target      ControllerInterfaces.ControllerInterface
+	target      *ControllerInterfaces.ControllerInterface
 	ContextType string
 }
 
-func (this Executor) execute(params map[string]string) (bool, error) {
+func (this *Executor) SetTarget(target ControllerInterfaces.ControllerInterface) {
+	this.target = &target
+}
+
+func (this *Executor) GetTarget() ControllerInterfaces.ControllerInterface {
+	return this.target
+}
+
+func (this *Executor) Execute(params map[string]string) (bool, error) {
 	//TODO: exectue context gateway action
 	//this.target.Run(params)
 	return true, nil
 }
-func (this Executor) executeAsHandler(params map[string]string) (http.HandlerFunc, error) {
+func (this *Executor) ExecuteAsHandler(params map[string]string) (http.HandlerFunc, error) {
 	//TODO: exectue context gateway action
 	//this.target.Run(param)
 	return nil, nil
 }
-func (this Executor) executeAsync(params map[string]string) (bool, error) {
+func (this *Executor) ExecuteAsync(params map[string]string) (bool, error) {
 	//TODO: exectue context gateway action
 	//this.target.Run(params)
 	return true, nil
 }
-func (this Executor) initiateEngine(context ControllerInterfaces.ControllerInterface) {
-	this.target = context
+func (this *Executor) initiateEngine(context ControllerInterfaces.ControllerInterface) {
+	this.target = &context
 }

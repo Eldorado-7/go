@@ -9,20 +9,20 @@ import (
 
 type Controller struct {
 	ControllerInterfaces.ControllerInterface
-	executor ExecutorInterfaces.ExecutorInterface
+	executor1 *ExecutorInterfaces.ExecutorInterface
+	executor  *Executors.Executor
 }
 
 //Create a generic http response helper for all incoming requests
-func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
+func (this *Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 
 	//Checking for the configuration of the execution engine
 	if this.executor == nil {
 		//TODO: check for the context of execution engine {Web, CLI, Microservice}
-		this.executor = Executors.Executor{
-			target = this
-		}
+		this.executor = &Executors.Executor{}
+		this.executor.SetTarget(&this)
 	}
-	
+	this.executor.ExecuteAsHandler(params)
 	// return func(rw http.ResponseWriter, r *http.Request) {
 
 	// 	rw.Header().Add("content-type", "application/json")
@@ -33,14 +33,3 @@ func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 	// }, nil
 	return nil, nil
 }
-<<<<<<< HEAD
-
-func (this Controller) processContext(param *map[string]string) string {
-	if *param != nil && *param["context"] != nil {
-		return *param["context"]
-	} else {
-		return "service"
-	}
-}
-=======
->>>>>>> 90ad8b303d2eea40bd1431d51fd444a8ba05b416
