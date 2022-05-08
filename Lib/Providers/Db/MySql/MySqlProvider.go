@@ -26,6 +26,10 @@ func (this MySqlProvider) Query(params map[string]string) {
 	}
 }
 
+func (this MySqlProvider) GetResult() *sql.Rows {
+	return this.Result
+}
+
 func (this *MySqlProvider) createConnectionString() string {
 	return this.GetUser() + ":" + this.password + "@tcp(" +
 		this.host + ":" + this.GetPort() + ")/" + this.GetDatasource()

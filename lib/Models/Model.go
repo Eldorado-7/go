@@ -20,3 +20,7 @@ func (this Model) Init() {
 	provder := Factory.CreateProvider()
 	this.Provider = &provder
 }
+
+func (this Model) GetProvider() Interface.ProviderInterface {
+	return *this.Provider
+}

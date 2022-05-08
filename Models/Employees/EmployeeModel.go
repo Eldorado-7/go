@@ -3,7 +3,7 @@
 *** @version: 1.0.1
 *** @email: javadbayzavi@gmail.com
 *** @year: 2021
-*/
+ */
 
 package Employees
 
@@ -18,6 +18,8 @@ type EmployeeModel struct {
 
 func (this *EmployeeModel) List(params map[string]string) []*Entities.Employee {
 	//Stub method. must return list from its provder
+	this.GetProvider().Query(map[string]string{"query": "select * from employee"})
+	this.GetProvider().GetResult()
 	return make([]*Entities.Employee, 0)
 }
 
