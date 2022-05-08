@@ -20,7 +20,7 @@ func (this *Controller) Run(params map[string]string) (http.HandlerFunc, error) 
 	if this.executor == nil {
 		//TODO: check for the context of execution engine {Web, CLI, Microservice}
 		this.executor = &Executors.Executor{}
-		this.executor.SetTarget(&this)
+		this.executor.SetTarget(this)
 	}
 	this.executor.ExecuteAsHandler(params)
 	// return func(rw http.ResponseWriter, r *http.Request) {
@@ -32,4 +32,17 @@ func (this *Controller) Run(params map[string]string) (http.HandlerFunc, error) 
 	// 	//rw.Write([]byte(this.DoRun(params)))
 	// }, nil
 	return nil, nil
+}
+
+//Create a generic http response helper for all incoming requests
+func (this *Controller) RunMe(me ControllerInterfaces.ControllerInterface, params map[string]string) (http.HandlerFunc, error) {
+
+	//Checking for the configuration of the execution engine
+	if this.executor == nil {
+		//TODO: check for the context of execution engine {Web, CLI, Microservice}
+		this.executor = &Executors.Executor{}
+		this.executor.SetTarget(*&me)
+	}
+	return this.executor.ExecuteAsHandler(params)
+
 }

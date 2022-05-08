@@ -18,7 +18,7 @@ type EmployeeList struct {
 	Controllers.Controller
 }
 
-func (this EmployeeList) processMe(params map[string]string) (string, error) {
+func (this EmployeeList) ProcessMe(params map[string]string) (string, error) {
 	//Fetch employees from DAO through data provider
 	EmployeeDAO := Employees.EmployeeModel{}
 

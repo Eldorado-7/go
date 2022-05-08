@@ -13,5 +13,6 @@ import (
 
 type ControllerInterface interface {
 	Run(params map[string]string) (http.HandlerFunc, error)
-	processMe([]string) (string, error)
+	RunMe(context ControllerInterface, params map[string]string) (http.HandlerFunc, error)
+	ProcessMe(params map[string]string) (string, error)
 }
