@@ -40,8 +40,8 @@ func (this Controller) Run(params map[string]string) (http.HandlerFunc, error) {
 }
 
 func (this Controller) processContext(param *map[string]string) string {
-	if param != nil && param["context"] != nil {
-		return param["context"]
+	if *param != nil && *param["context"] != nil {
+		return *param["context"]
 	} else {
 		return "service"
 	}
