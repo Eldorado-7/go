@@ -8,6 +8,7 @@
 package Employees
 
 import (
+	"fmt"
 	Entities "go-microservices/Entities/Employees"
 	"go-microservices/lib/Models"
 )
@@ -19,7 +20,8 @@ type EmployeeModel struct {
 func (this *EmployeeModel) List(params map[string]string) []*Entities.Employee {
 	//Stub method. must return list from its provder
 	this.GetProvider().Query(map[string]string{"query": "select * from employee"})
-	this.GetProvider().GetResult()
+	x := this.GetProvider().GetResult()
+	fmt.Println(x)
 	return make([]*Entities.Employee, 0)
 }
 
